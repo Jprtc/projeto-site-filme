@@ -1,0 +1,171 @@
+.titulo-secao {
+    font-size: 1.5rem;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700; 
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-left: 50px; 
+}
+
+.filmes-em-alta-container {
+    padding: 20px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lista-filmes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+.card-filme {
+    width: 202px;
+    height: 270px;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 8px; 
+    overflow: visible; 
+    cursor: pointer;
+}
+
+.card-filme img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block; 
+}
+
+.numero-grande {
+    position: absolute;
+    bottom: -15px;
+    left: -10px;
+    font-size: 110px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 1px white;
+    z-index: 99; 
+    pointer-events: none;
+    font-family: sans-serif;
+}
+
+.card-filme:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.lista-filmes::-webkit-scrollbar {
+    display: none;
+}
+.carrossel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lista-filmes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth; 
+    width: 100%;
+}
+
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.carrossel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carrossel-btn.left {
+    left: -20px;
+}
+
+.carrossel-btn.right {
+    right: -20px;
+}
+
+
+.modal-trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-trailer iframe {
+  width: 80%;
+  height: 60%;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.modal-content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.fechar-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s;
+}
+
+.fechar-btn:hover {
+  color: #e50914;
+}
+
+

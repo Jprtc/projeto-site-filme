@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react';
 import './FilmesEmAlta.css';
+import FilmeCard from '../../Components/FilmeCard/FilmeCard.jsx';
+import TrailerModal from '../../Components/TrailerModal/TrailerModal.jsx';
+
 import imgOne from '../../assets/One.jpg';
 import imgMagica from '../../assets/Como Magica.jpg';
 import imgLei from '../../assets/Lei Ordem.jpg';
@@ -22,10 +25,10 @@ function FilmesEmAlta({ idioma }) {
     fr: { titulo: 'Tendances' },
     de: { titulo: 'Aktuell im Trend' },
     it: { titulo: 'Tendenze' },
-    ja: { titulo: ' ' },
-    ko: { titulo: ' ' }
+    ja: { titulo: 'トレンド' },
+    ko: { titulo: '인기 급상승' }
   };
-
+  
   const t = textos[idioma] || textos['pt'];
 
   const listaFilmes = [
@@ -50,31 +53,25 @@ function FilmesEmAlta({ idioma }) {
       
       <div className="carrossel-wrapper">
         <button className="carrossel-btn left" onClick={scrollLeft}>&#10094;</button>
-
+        
         <div className="lista-filmes" ref={carrosselRef}>
           {listaFilmes.map((filme) => (
-            <div key={filme.id} className="card-filme" onClick={() => setTrailerAtual(filme.trailer)}>
-              <img src={filme.img} alt={`Filme ${filme.id}`} />
-              <span className="numero-grande">{filme.id}</span>
-            </div>
+            <FilmeCard 
+              key={filme.id} 
+              filme={filme} 
+              onAbrirTrailer={setTrailerAtual} 
+            />
           ))}
         </div>
-
+        
         <button className="carrossel-btn right" onClick={scrollRight}>&#10095;</button>
       </div>
 
-      {trailerAtual && (
-        <div className="modal-overlay" onClick={() => setTrailerAtual(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="fechar-btn" onClick={() => setTrailerAtual(null)}>X</button>
-            <iframe 
-              src={trailerAtual} 
-              title="Trailer"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )}
+
+      <TrailerModal 
+        url={trailerAtual} 
+        onFechar={() => setTrailerAtual(null)} 
+      />
     </div>
   );
 }

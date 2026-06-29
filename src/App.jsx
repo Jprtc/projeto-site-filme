@@ -6,17 +6,13 @@ import PerguntasFrequentes from "./Widgets/PerguntasFrequentes/PerguntasFrequent
 import FilmesEmAlta from "./Widgets/FilmesEmAlta/FilmesEmAlta";
 
 function App() {
-
-
   return (
     <div className="app-container">
       <Header />
       <MainBanner />
-      <FilmesEmAlta/>
-      <PerguntasFrequentes/>
+      <FilmesEmAlta />
+      <PerguntasFrequentes />
       <Footer />
-
-
     </div>
   );
 }

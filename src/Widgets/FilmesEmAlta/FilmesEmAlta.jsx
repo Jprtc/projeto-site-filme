@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './FilmesEmAlta.css';
 import FilmeCard from '../../Components/FilmeCard/FilmeCard.jsx';
 import TrailerModal from '../../Components/TrailerModal/TrailerModal.jsx';
-
 import imgOne from '../../assets/One.jpg';
 import imgMagica from '../../assets/Como Magica.jpg';
 import imgLei from '../../assets/Lei Ordem.jpg';
@@ -17,6 +16,10 @@ import imgVampire from "../../assets/Vampiro.jpg";
 function FilmesEmAlta({ idioma }) {
   const carrosselRef = useRef(null);
   const [trailerAtual, setTrailerAtual] = useState(null);
+  
+  // Estados para controlar a visibilidade dos botões
+  const [mostrarEsquerda, setMostrarEsquerda] = useState(false);
+  const [mostrarDireita, setMostrarDireita] = useState(true);
 
   const textos = {
     pt: { titulo: 'Em alta' },
@@ -25,8 +28,8 @@ function FilmesEmAlta({ idioma }) {
     fr: { titulo: 'Tendances' },
     de: { titulo: 'Aktuell im Trend' },
     it: { titulo: 'Tendenze' },
-    ja: { titulo: 'トレンド' },
-    ko: { titulo: '인기 급상승' }
+    ja: { titulo: ' ' },
+    ko: { titulo: ' '}
   };
   
   const t = textos[idioma] || textos['pt'];
@@ -44,17 +47,44 @@ function FilmesEmAlta({ idioma }) {
     { id: 10, img: imgVampire, trailer: 'https://www.youtube.com/embed/GLjxcX9oMlY' },
   ];
 
-  const scrollLeft = () => carrosselRef.current.scrollBy({ left: -400, behavior: 'smooth' });
-  const scrollRight = () => carrosselRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+  // Função para calcular a posição do Scroll
+  const handleScroll = () => {
+    if (carrosselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carrosselRef.current;
+      
+      setMostrarEsquerda(scrollLeft > 0);
+      setMostrarDireita(Math.ceil(scrollLeft + clientWidth) < scrollWidth);
+    }
+  };
+
+  // Checagem inicial e listener para redimensionamento da janela
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener('resize', handleScroll);
+    return () => window.removeEventListener('resize', handleScroll);
+  }, []);
+
+  const scrollLeft = () => carrosselRef.current.scrollBy({ left: -800, behavior: 'smooth' });
+  const scrollRight = () => carrosselRef.current.scrollBy({ left: 800, behavior: 'smooth' });
 
   return (
     <div className="filmes-em-alta-container">
       <h2 className="titulo-secao">{t.titulo}</h2>
       
       <div className="carrossel-wrapper">
-        <button className="carrossel-btn left" onClick={scrollLeft}>&#10094;</button>
+        {mostrarEsquerda && (
+          <button className="carrossel-btn left" onClick={scrollLeft}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        )}
         
-        <div className="lista-filmes" ref={carrosselRef}>
+        <div 
+          className="lista-filmes" 
+          ref={carrosselRef} 
+          onScroll={handleScroll}
+        >
           {listaFilmes.map((filme) => (
             <FilmeCard 
               key={filme.id} 
@@ -64,9 +94,14 @@ function FilmesEmAlta({ idioma }) {
           ))}
         </div>
         
-        <button className="carrossel-btn right" onClick={scrollRight}>&#10095;</button>
+        {mostrarDireita && (
+          <button className="carrossel-btn right" onClick={scrollRight}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        )}
       </div>
-
 
       <TrailerModal 
         url={trailerAtual} 

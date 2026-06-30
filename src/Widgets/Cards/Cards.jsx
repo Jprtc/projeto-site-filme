@@ -1,8 +1,8 @@
 import styles from "./Cards.module.css";
-import tv from "./Icons/tv.svg";
-import downloadseta from "./Icons/downloadseta.svg";
-import telescopio from "./Icons/telescopio.svg";
-import carinha from "./Icons/carinha-sorrindo.svg";
+import tv from "./Icons/tv.png";
+import seta from "./Icons/seta.png";
+import telescopio from "./Icons/telescopio.png";
+import carinhassorrindo from "./Icons/carinhas-sorrindo.png";
 
 const motivos = [
   {
@@ -13,7 +13,7 @@ const motivos = [
   {
     titulo: "Baixe séries para assistir offline",
     descricao: "Salve seus títulos favoritos e sempre tenha algo para assistir.",
-    icone: downloadseta
+    icone: seta
     
   },
   {
@@ -25,7 +25,7 @@ const motivos = [
   {
     titulo: "Crie perfis para crianças",
     descricao: "Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.",
-    icone: carinha
+    icone: carinhassorrindo
   },
 ];
 
@@ -39,11 +39,7 @@ function Cards() {
       <div className={styles.card} key={index}>
         <h3>{item.titulo}</h3>
         <p>{item.descricao}</p>
-        <img src={item.icone} alt={item.titulo} className={
-          item.titulo === "Assista onde quiser"
-      ? `${styles.icone} ${styles.telescopio}`
-      : styles.icone
-  } />
+        <img src={item.icone} alt={item.titulo} className={styles.icone}/>
       </div>
     ))}
   </div>

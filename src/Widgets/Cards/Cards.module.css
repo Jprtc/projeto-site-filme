@@ -62,8 +62,8 @@
 
 
 .icone {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   position: absolute;
   right: 16px;
   bottom: 16px;
@@ -72,6 +72,3 @@
   
 }
 
-.telescopio {
-  transform: rotate(-80deg);
-}

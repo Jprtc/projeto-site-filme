@@ -47,7 +47,7 @@ function FilmesEmAlta({ idioma }) {
     { id: 10, img: imgVampire, trailer: 'https://www.youtube.com/embed/GLjxcX9oMlY' },
   ];
 
-  // Função para calcular a posição do Scroll
+ 
   const handleScroll = () => {
     if (carrosselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carrosselRef.current;
@@ -57,7 +57,7 @@ function FilmesEmAlta({ idioma }) {
     }
   };
 
-  // Checagem inicial e listener para redimensionamento da janela
+  
   useEffect(() => {
     handleScroll();
     window.addEventListener('resize', handleScroll);

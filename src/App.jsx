@@ -1,19 +1,34 @@
-
+import { useState } from 'react'
 import './App.css'
-import Footer from './Widgets/Footer/Footer'
 import Header from './Widgets/Header/header'
 import MainBanner from './Widgets/MainBanner/MainBanner'
-import BannerPrincipal from './Widgets/BannerPrincipal/BannerPrincipal'
 import CardOferta from './Widgets/CardOferta/CardOferta'
-import Modal from './Widgets/Modal/Modal'
 
 function App() {
+  const [idioma, setIdioma] = useState('pt');
+
+  const textosHeaderPorIdioma = {
+    pt: { botaoEntrar: 'Entrar' },
+    en: { botaoEntrar: 'Sign In' },
+    es: { botaoEntrar: 'Iniciar sesión' },
+    fr: { botaoEntrar: 'Se connecter' },
+    de: { botaoEntrar: 'Anmelden' },
+    it: { botaoEntrar: 'Accedi' },
+    ja: { botaoEntrar: 'ログイン' },
+    ko: { botaoEntrar: '로그인' }
+  };
+
+  const textosHeader = textosHeaderPorIdioma[idioma] || textosHeaderPorIdioma.pt;
 
   return (
     <>
-    <Header/>
-      <MainBanner/>
-    <Footer/>
+      <Header 
+        idioma={idioma} 
+        setIdioma={setIdioma} 
+        textosHeader={textosHeader} 
+      />
+      <MainBanner idioma={idioma} />
+      <CardOferta idioma={idioma} />
     </>
   )
 }

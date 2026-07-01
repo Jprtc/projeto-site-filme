@@ -4,6 +4,8 @@ import Header from './Widgets/Header/header'
 import MainBanner from './Widgets/MainBanner/MainBanner'
 import CardOferta from './Widgets/CardOferta/CardOferta'
 import Footer from './Widgets/Footer/Footer'
+import PerguntasFrequentes from "./Widgets/PerguntasFrequentes/PerguntasFrequentes";
+import FilmesEmAlta from "./Widgets/FilmesEmAlta/FilmesEmAlta";
 
 function App() {
   const [idioma, setIdioma] = useState('pt');
@@ -30,6 +32,8 @@ function App() {
       />
       <MainBanner idioma={idioma} />
       <CardOferta idioma={idioma} />
+        <FilmesEmAlta />
+      <PerguntasFrequentes />
       <Footer/>
     </>
   )

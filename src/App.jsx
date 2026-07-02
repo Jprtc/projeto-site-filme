@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
+
 import Header from "./Widgets/Header/Header";
-import logo from "./assets/netflixlogo.png";
+
 
 export default function App() {
   const [openHelp, setOpenHelp] = useState(false);

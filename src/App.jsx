@@ -33,9 +33,9 @@ function App() {
       />
       <MainBanner idioma={idioma} />
       <CardOferta idioma={idioma} />
-        <FilmesEmAlta />
+        <FilmesEmAlta idioma={idioma} />
             <Cards/>
-      <PerguntasFrequentes />
+      <PerguntasFrequentes idioma={idioma} />
       <Footer/>
     </>
   )

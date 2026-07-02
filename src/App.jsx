@@ -6,6 +6,7 @@ import CardOferta from './Widgets/CardOferta/CardOferta'
 import Footer from './Widgets/Footer/Footer'
 import PerguntasFrequentes from "./Widgets/PerguntasFrequentes/PerguntasFrequentes";
 import FilmesEmAlta from "./Widgets/FilmesEmAlta/FilmesEmAlta";
+import Cards from './Widgets/Cards/Cards'
 
 function App() {
   const [idioma, setIdioma] = useState('pt');
@@ -33,6 +34,7 @@ function App() {
       <MainBanner idioma={idioma} />
       <CardOferta idioma={idioma} />
         <FilmesEmAlta />
+            <Cards/>
       <PerguntasFrequentes />
       <Footer/>
     </>

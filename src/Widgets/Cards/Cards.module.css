@@ -1,5 +1,5 @@
 .motivos {
-  width: 85%;
+  max-width: 1200px;
   margin: 80px auto;
   color: #fff;
   background-color: black;
@@ -20,12 +20,12 @@
 .card {
  background: linear-gradient(
     180deg,
-    rgba(39, 39, 86, 0.6),
+    rgba(38, 38, 91, 0.6),
     rgb(28, 3, 33)
   );
   border-radius: 16px;
   padding: 24px;
-  min-height: 280px;
+  min-height: 300px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -62,8 +62,8 @@
 
 
 .icone {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   position: absolute;
   right: 16px;
   bottom: 16px;

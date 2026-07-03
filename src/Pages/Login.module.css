@@ -1,0 +1,97 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 24px 60px;
+}
+
+.logo {
+  width: 170px;
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 60px 68px 40px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.loginBox h1 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.loginBox input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.loginBox input::placeholder {
+  color: #b3b3b3;
+}
+
+.loginBox button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  background: #e50914;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.loginBox button:hover {
+  background: #c11119;
+}
+
+.loginBox p {
+  text-align: center;
+  color: #b3b3b3;
+  margin: 15px 0;
+}
+
+.loginBox a {
+  color: white;
+  text-decoration: none;
+}
+
+.loginBox a:hover {
+  text-decoration: underline;
+}
+
+.loginBox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3b3b3;
+  margin: 15px 0;
+}
+
+.loginBox small {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-top: 20px;
+  line-height: 1.5;
+}

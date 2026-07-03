@@ -1,4 +1,5 @@
 import styles from './Header.module.css'
+import { Link } from 'react-router-dom';
 
 function Header({ idioma, setIdioma, textosHeader }) {
   return (
@@ -27,9 +28,9 @@ function Header({ idioma, setIdioma, textosHeader }) {
           <option value="ja">🌐 日本語</option>
           <option value="ko">🌐 한국어</option>
         </select>
-        <button className={styles['botao-entrar']}>
+        <Link to="/Login" className={styles['botao-entrar']}>
           {textosHeader.botaoEntrar}
-        </button>
+        </Link>
       </div>
     </header>
   );

@@ -1,7 +1,6 @@
-import Header from "./Widgets/Header/Header";
-import LoginForm from "./Widgets/LoginForm/LoginForm";
-import logo from "./assets/netflixlogo.png";
-import { STYLES } from "./styles/globalStyles";
+import { Header, LoginForm } from "../index";
+import logo from "../../assets/netflixlogo.png";
+import { STYLES } from "../../styles/globalStyles";
 import "./App.css";
 
 export default function App() {
@@ -15,3 +14,4 @@ export default function App() {
       <LoginForm />
     </div>
   );
+}

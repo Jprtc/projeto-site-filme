@@ -1,0 +1,17 @@
+.item {
+  color: #b3b3b3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.item:hover {
+  color: white;
+  text-shadow: 0 0 10px white;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+}
